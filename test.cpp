@@ -1,50 +1,34 @@
-#include <iostream>
-#include <cmath>
-#include <vector>
-#include <string>
-using namespace std;
+#include "header.h"
 
-
-
-int removeDuplicates(vector<int>& nums) {
-    bool isDup = false;
+int jump(vector<int>& nums) {
+    int boundary = 0;
+    int maxStep = 0;
+    int step = 0;
+    int startJumpPos = 0;
     int len = nums.size();
-    int lenAfterRemove = nums.size();
-
-    if(len <= 2) {
-        return len;
-    }
-
-    int temp = nums[0];
-    for(int i = 1; i < len; i++) {
-        // encounter the different character
-        if(temp != nums[i]) {
-            temp = nums[i];
-            isDup = false;
-        } else if(temp == nums[i] && isDup == false) { // encounter 1st same caracter
-            isDup = true;
-        } else if(temp == nums[i] && isDup == true) { // more than 2 different caracter
-            lenAfterRemove--;
-            nums.erase(nums.begin() + i);
-            len--;
-            i--;
+    while(boundary < len - 1) {
+         
+        for(int i = startJumpPos; i <= boundary; i++) {
+            // can reach a further boundary
+            // update boundary and start jump pos
+            if(maxStep < i + nums[i]) {
+                maxStep = i + nums[i];
+                startJumpPos = i;
+            } 
         }
+        boundary = maxStep;
+        step++;
     }
 
-    for(auto num : nums) {
-        cout << num << ' ';
-    }
-    cout << endl;
-    return lenAfterRemove;
+    return step;
 }
 
 
-using namespace std;
 int main() {
-    vector<int> nums = {0,0,1,1,1,1,2,3,3};
-    int len = removeDuplicates(nums);
+    vector<int> nums = {0};
+    int ans = jump(nums);
 
-    cout << len << endl;
+    cout << ans << endl;
 
     return 0;
 }

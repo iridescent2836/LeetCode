@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "vector": "cpp"
+        "*.scss": "html",
+        "vector": "cpp",
+        "unordered_set": "cpp"
     }
 }
