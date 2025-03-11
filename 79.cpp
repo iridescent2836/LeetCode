@@ -137,8 +137,7 @@ public:
         unordered_map<char,int> word_m;
         for(char c : word)
         {
-            if(++word_m[c] > m[c])
-            return false;
+            if(++word_m[c] > m[c]) return false;
         }
 
         if(word_m[word[0]]>word_m[word.back()])
