@@ -8,7 +8,7 @@ int maxArea(vector<int>& height) {
     size_t left{0};
 
     //use left and right as the bundary of the bottle
-    for(;right > left;)
+    while(left < right)
     {
         //always move the smaller side
         if(height[left] < height[right])
@@ -17,7 +17,7 @@ int maxArea(vector<int>& height) {
             if(temp_area > max) max = temp_area;
             left++;
         }
-        else /*if(height[left] > height[right])*/
+        else /*if(height[left] >= height[right])*/
         {
             int temp_area = height[right] * (right-left);
             if(temp_area > max) max = temp_area;
