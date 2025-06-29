@@ -36,6 +36,7 @@ public:
     int lengthOfLIS(vector<int>& nums) {
         // 'q' will store the smallest possible tail of all increasing subsequences
         // with different lengths. It is not the actual subsequence.
+        // e.g. q[i] 存储的是长度为i+1的递增子序列的最小的tail值
         std::vector<int> q;
 
         for (int i = 0; i < nums.size(); ++i) {
