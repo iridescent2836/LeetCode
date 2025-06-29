@@ -5,6 +5,7 @@
 class RandomizedSet {
 private:
     vector<int> nums;
+    // the first is the number, second is the idx it has in the vector. 
     unordered_map<int,int> table;
 
 

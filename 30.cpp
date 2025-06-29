@@ -54,6 +54,7 @@ public:
         
         vector<int> ans;
 
+        // to divide s into a set of `word` whose length is len
         for(int i = 0; i < len && i + size - 1 < Slen; i++){
             unordered_map<string,int>differ;
 
@@ -64,6 +65,7 @@ public:
             // notice, if word doesn't exist in differ, the unordered_map will init 
             // differ[word] = 0, then --differ[word] == -1, which indicate that it 
             // lack word.
+            // init the window
             for(auto word:words){
                 if(--differ[word] == 0) differ.erase(word);
             }
