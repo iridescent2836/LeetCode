@@ -11,8 +11,11 @@ public:
         if(root == nullptr) return false;
         bool lson = dfs(root->left, p, q);
         bool rson = dfs(root->right, p, q);
-        if((lson && rson) || (root->val == p->val) || root->val == q->val)
-            ans = root;
+        if ((lson && rson) // the left and right kid contain q and p seperately
+        || ((root->val == p->val || root->val == q->val) && (lson || rson))) // check the situation when root is q or p
+         ans = root;
+        
+        // return does the tree contain q or q
         return lson || rson || (root->val == p->val) || (root->val == q->val);
     }
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {

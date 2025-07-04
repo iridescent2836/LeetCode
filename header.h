@@ -22,6 +22,13 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
+struct TreeNodeMy{
+    int val;
+    TreeNodeMy* left;
+    TreeNodeMy* right;
+    TreeNodeMy(): val(0), left(nullptr), right(nullptr){}
+};
+
 
 struct ListNode {
     int val;

@@ -35,8 +35,31 @@ vector<vector<string>> groupAnagrams(vector<string>& strs) {
 }
 
 
+// 不知道为什么你要用用 unordered_map<char,int> AlphabettoPrime 存储 char 到质数的映射
+// 完全是浪费存储资源
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+//26个质数表
+        int primeNum[26] = {5, 71, 31, 29, 2, 53, 59, 23, 11,
+                            89, 79, 37, 41, 13, 7, 43, 97, 17,
+                            19, 3, 47, 73, 61, 83, 67, 101};
 
-
+        unordered_map<size_t, vector<string>> mp;
+        for(string str: strs){
+            size_t key = 1;
+            for(char ch : str){
+                key *= primeNum[ch-'a'];
+            }
+            mp[key].push_back(str);
+        }
+        vector<vector<string>> ans;
+        for(auto it=mp.begin(); it!=mp.end(); it++){
+            ans.push_back(it->second);
+        }
+        return ans;
+    }
+};
 
 
 

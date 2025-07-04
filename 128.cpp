@@ -28,25 +28,25 @@ public:
 
 // stupid and functional
 class Solution {
-    public:
-        int longestConsecutive(vector<int>& nums) {
-            if (nums.empty()) return 0;
-            else{
-                sort(nums.begin(), nums.end());
-                int cnt = 1, ans = 1;
-                for (int i = 1; i < nums.size(); i++){
-                    if (nums[i] == nums[i - 1] + 1) cnt++;
-                    else if (nums[i] == nums[i - 1]);
-                    else {
-                        ans = max(ans, cnt);
-                        cnt = 1;
-                    }
-                    if (i == nums.size() - 1) ans = max(ans, cnt);
+public:
+    int longestConsecutive(vector<int>& nums) {
+        if (nums.empty()) return 0;
+        else{
+            sort(nums.begin(), nums.end());
+            int cnt = 1, ans = 1;
+            for (int i = 1; i < nums.size(); i++){
+                if (nums[i] == nums[i - 1] + 1) cnt++;
+                else if (nums[i] == nums[i - 1]);
+                else {
+                    ans = max(ans, cnt);
+                    cnt = 1;
                 }
-                return ans;
+                if (i == nums.size() - 1) ans = max(ans, cnt);
             }
+            return ans;
         }
-    };
+    }
+};
 
 // cleverer than me
 class Solution {
@@ -62,6 +62,7 @@ public:
         int ret = 0;
 
         for(const int& num: num_set){
+            // to avoid searching form `x+1` when `x, x+1, x+2, ..., x+y` exists.
             if(!num_set.count(num-1)){
                 int currentNum = num;
                 int currentStrike = 1;

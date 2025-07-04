@@ -38,7 +38,6 @@ public:
             ret++;
         }
 
-        int count = 0;
         for (int col = 0; col < size; col++) {
             if (cols[col] || diag1[row + col] || diag2[row - col + size - 1])
                 continue;

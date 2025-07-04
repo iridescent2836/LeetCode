@@ -2,6 +2,8 @@
 
 using namespace std;
 
+// what the hell are you writing? can't you just use `size_t max = 0` ?
+//             --- 2025-7-2
 int maxArea(vector<int>& height) {
     size_t right{height.size()-1};
     size_t max{0};
@@ -26,3 +28,26 @@ int maxArea(vector<int>& height) {
     }
     return max;
 }
+
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int left = 0;
+        int right = height.size()-1;
+        int maxWater = 0;
+
+        while(left < right){
+            int temp = 0;
+            if(height[left] < height[right]){
+                temp = height[left];
+                left++;
+            } else {
+                temp = height[right];
+                right--;
+            }
+            temp *= (right-left+1);
+            maxWater = max(maxWater, temp);
+        }
+        return maxWater;
+    }
+};

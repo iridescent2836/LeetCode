@@ -44,11 +44,8 @@ public:
 
         for(int i = 0; i < len; i++){
             pre+=nums[i];
-            if(mp.find(pre-k)!=mp.end()){
-                ret+=mp[pre-k];
-            }
-            mp[pre]+=1;
-
+            if(mp.find(pre-k)!=mp.end()) ret+=mp[pre-k];
+            mp[pre]++;
         }
         return ret;
     }

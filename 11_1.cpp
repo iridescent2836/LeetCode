@@ -6,6 +6,9 @@ using namespace std;
  * what the hell are you writing? 
  * can you stop using so many `auto`?
  *              --- 2025-3-19
+ * 
+ * same comment, this code sucks. 
+ *              --- 2025-7-2
  */
 int maxArea(vector<int>& height) {
     size_t limit = height.size();

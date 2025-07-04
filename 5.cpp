@@ -60,6 +60,31 @@ public:
     }
 };
 
+/**
+ * dp
+ * time: O(n^2)
+ * space: O(n^2)
+ */
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int len = s.size();
+        vector<vector<int>> dp(len, vector<int> (len, true));
+        int max_len = 1;
+        int begin_idx = 0;
+        for(int i = len-1; i >= 0; i--){
+            for(int j = i+1; j < len; j++){
+                dp[i][j] = dp[i+1][j-1] && s[i] == s[j];
+                if(dp[i][j] && (j-i+1) > max_len){
+                    max_len = j-i+1;
+                    begin_idx = i;
+                }
+            }
+        }
+        return s.substr(begin_idx, max_len);
+    }
+};
+
 // Where did I get this answer from? 
 class Solution {
 public:

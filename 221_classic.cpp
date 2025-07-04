@@ -42,6 +42,14 @@ public:
  * https://leetcode.cn/problems/count-square-submatrices-with-all-ones/solutions/101706/tong-ji-quan-wei-1-de-zheng-fang-xing-zi-ju-zhen-2/
  * the above link is the detailed proof of the transfer function. 
  * 
+ * 简单说一下自己的理解，f(i,j)表示以(i,j)为右下角的正方形的最大边长，
+ * 如果 (i,j)为“0”，以(i,j)为右下角不可能构成全为“1”的正方形 => f(i,j)=0，
+ * 
+ * 如果(i,j)为“1”，至少可以获得边长为1的正方形，还能不能变大只能向左向上扩展边长，
+ * 这个时候需要看正上，左边和左上三个点，因为扩展定会将这三个相邻点包含进来，如果三个点中最小值为0，
+ * 那么扩展后肯定不行，如果最小值为1，那么三个点都为1，定能扩展成边长为2的正方形，
+ * => 同理能扩展到最大的是 min(左，上，左上) + 1。
+ * 
  */
 class Solution {
 public:
