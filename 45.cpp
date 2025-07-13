@@ -13,6 +13,7 @@ public:
         for(int i = 0; i < len; i++) {
             for(int j = 1; j <= nums[i]; j++) {
                 if(i + j < len) {
+                    // dp[i+j]: 从i起跳能跳到的所有位置
                     dp[i + j] = min(dp[i + j], dp[i] + 1);
                 }
             }

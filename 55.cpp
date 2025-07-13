@@ -16,6 +16,17 @@ bool canJump(vector<int>& nums) {
 }
 
 
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int max_jump = 0;
+        for(int i = 0;i<=max_jump && i < nums.size();i++)
+            max_jump = max(max_jump, i+nums[i]);
+            
+        return (max_jump>= nums.size()-1);
+    }
+};
+
 int main() {
     vector<int> nums = {3,2,1,0,4};
 
