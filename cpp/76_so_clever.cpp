@@ -2,6 +2,7 @@
 
 // we use slide window
 // this is a clever clever implementation. 
+// Where did you get the answer? 2025-7-23
 class Solution {
 public:
 
@@ -31,7 +32,7 @@ public:
             // `t` can be fully covered
             if(count == lenT){
                 if(right-left+1 < ret.size() || ret.empty()){
-                    ret = s.substr(left, left-right+1);
+                    ret = s.substr(left, right-left+1);
                 }
             }
             

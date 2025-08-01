@@ -1,4 +1,4 @@
-#include "header.h"
+#include "../header.h"
 
 class permutationUsingSwap {
 public:
@@ -43,8 +43,8 @@ public:
         }
     }
 
-        void generatePermutationsWithoutDuplication(const vector<int> & nums, vector<vector<int>>& result, 
-                                                    vector<int>& temp, vector<bool>& visited){
+    void generatePermutationsWithoutDuplication(const vector<int> & nums, vector<vector<int>>& result, 
+                                                vector<int>& temp, vector<bool>& visited){
         if(temp.size() == nums.size()) {
             result.push_back(temp);
             return;
